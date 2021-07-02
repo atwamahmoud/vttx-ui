@@ -1,0 +1,14 @@
+# Edited template from: https://EditorConfig.org
+
+# top-most EditorConfig file
+# Set root to true so that the editor won't will stop searching for other `.editorconfig` files.
+root = true
+
+# Selects all files in order to make it consistent across different languages & files.
+[*]
+end_of_line = lf # Unix-style line ending
+insert_final_newline = true # Adds an extra line at the end of file
+trim_trailing_whitespace = true # Remove whitespace at end of any line.
+charset = utf-8 # Sets the charset
+indent_style = space # Use spaces instead of tabs
+indent_size = 2 # Indent size = 2 spaces

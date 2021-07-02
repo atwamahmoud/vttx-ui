@@ -1,0 +1,133 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "prettier",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "default",
+        "format": ["camelCase"],
+        "leadingUnderscore": "forbid",
+        "trailingUnderscore": "forbid"
+      },
+
+      //Enforce camelCase for variables &  forbid Underscores & beginning & end
+      {
+        "selector": "variable",
+        "format": ["camelCase", "UPPER_CASE", "PascalCase"],
+        "leadingUnderscore": "forbid",
+        "trailingUnderscore": "forbid"
+      },
+
+      //Enforce Type Generics (e.g. TArr in Array<TArr>) to be prefixed with T
+      {
+        "selector": "typeParameter",
+        "format": ["PascalCase"],
+        "prefix": ["T"]
+      },
+
+      //Enforce that class, interface, typeAlias, enum & typeParameter are PascalCase
+      {
+        "selector": "typeLike",
+        "format": ["PascalCase"]
+      },
+
+      //Enforce Interfaces to start with "I" letter
+      {
+        "selector": "interface",
+        "format": ["PascalCase"]
+      }
+    ],
+    "react/button-has-type": [
+      "error",
+      {
+        "button": true,
+        "submit": true,
+        "reset": true
+      }
+    ],
+
+    // Props indentation
+    "react/jsx-indent-props": [2, 2],
+
+    // Element Indentation
+    "react/jsx-indent": [
+      2,
+      2,
+      {
+        "indentLogicalExpressions": true
+      }
+    ],
+    // Don't add key prob as the index for the element in an array
+    "react/no-array-index-key": ["error"],
+
+    // Must add a key
+    "react/jsx-key": [
+      "error",
+      {
+        "checkFragmentShorthand": true
+      }
+    ],
+
+    // Use self closing tag for elements without children
+    "react/self-closing-comp": [
+      "error",
+      {
+        "component": true,
+        "html": true
+      }
+    ],
+
+    // No multi spaces in props (<div  test   />)
+    "react/jsx-props-no-multi-spaces": ["error"],
+
+    // jsx-no-lambda alternative
+    // Don't add an arrow function as a prop
+    // Don't use .bind() in a prop
+    // Don't use function() {} in a prop
+    "react/jsx-no-bind": [
+      "error",
+      {
+        "ignoreDOMComponents": false,
+        "ignoreRefs": false,
+        "allowArrowFunctions": false,
+        "allowFunctions": false,
+        "allowBind": false
+      }
+    ],
+
+    "react/display-name": [1, {"ignoreTranspilerName": false}],
+    //Extra...
+    "no-magic-numbers": [
+      "warn",
+      {
+        "ignore": [-1, 0, 1]
+      }
+    ],
+    "no-duplicate-imports": "error",
+    "space-before-blocks": "error",
+    "no-mixed-spaces-and-tabs": "error",
+    "no-extra-boolean-cast": "error"
+  }
+}
